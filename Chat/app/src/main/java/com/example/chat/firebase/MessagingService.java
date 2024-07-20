@@ -1,4 +1,4 @@
-package com.example.chat.activities.firebase;
+package com.example.chat.firebase;
 
 import android.util.Log;
 
@@ -23,3 +23,4 @@ public class MessagingService extends FirebaseMessagingService {
         Log.d("FCM", "Message : " + Objects.requireNonNull(message.getNotification()).getBody());
     }
 }
+

@@ -1,4 +1,4 @@
-package com.example.chat;
+package com.example.chat.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.chat.activities.SignInActivity;
+import com.example.chat.R;
 
 
 public class MainActivity extends AppCompatActivity {
