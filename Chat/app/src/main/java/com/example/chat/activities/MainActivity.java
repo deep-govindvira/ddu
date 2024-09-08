@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
 import com.example.chat.databinding.ActivityMainBinding;
 import com.example.chat.utilities.Constants;
 import com.example.chat.utilities.PreferenceManager;
@@ -56,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
+        binding.fabNewChat.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), UserActivity.class));
+        });
         binding.imageSignOut.setOnClickListener(view -> signOut());
     }
 
@@ -82,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
                                 preferenceManager.getString(Constants.KEY_USER_ID)
                         );
         documentReference.update(Constants.KEY_FCM_TOKEN, token)
-                .addOnSuccessListener(unused -> showToast("Token updated successfully"))
                 .addOnFailureListener(e -> showToast("Unable to update token"));
     }
 
