@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.chat.R;
 import com.example.chat.adapters.UserAdapter;
 import com.example.chat.databinding.ActivityUserBinding;
+import com.example.chat.listeners.UserListener;
 import com.example.chat.models.User;
 import com.example.chat.utilities.Constants;
 import com.example.chat.utilities.PreferenceManager;
@@ -23,7 +24,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserActivity extends AppCompatActivity {
+public class UserActivity extends AppCompatActivity implements UserListener {
 
     private ActivityUserBinding binding;
     private PreferenceManager preferenceManager;
@@ -65,7 +66,7 @@ public class UserActivity extends AppCompatActivity {
                             users.add(user);
                         }
                         if(!users.isEmpty()) {
-                            UserAdapter userAdapter = new UserAdapter(users);
+                            UserAdapter userAdapter = new UserAdapter(users,this);
                             binding.userRecycleView.setAdapter(userAdapter);
                             binding.userRecycleView.setVisibility(View.VISIBLE);
                         } else {
@@ -88,5 +89,13 @@ public class UserActivity extends AppCompatActivity {
         } else {
             binding.progressBar.setVisibility(View.INVISIBLE);
         }
+    }
+
+    @Override
+    public void onUserClicked(User user) {
+        intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+        intent.putExtra(Constants.KEY_USER, user);
+        startActivity(intent);
+        finish();
     }
 }
