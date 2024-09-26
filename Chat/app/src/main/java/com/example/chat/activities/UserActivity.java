@@ -1,16 +1,11 @@
 package com.example.chat.activities;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import com.example.chat.R;
 import com.example.chat.adapters.UserAdapter;
 import com.example.chat.databinding.ActivityUserBinding;
 import com.example.chat.listeners.UserListener;
@@ -18,7 +13,6 @@ import com.example.chat.models.User;
 import com.example.chat.utilities.Constants;
 import com.example.chat.utilities.PreferenceManager;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
@@ -94,7 +88,7 @@ public class UserActivity extends AppCompatActivity implements UserListener {
 
     @Override
     public void onUserClicked(User user) {
-        intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+        Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
         intent.putExtra(Constants.KEY_USER, user);
         startActivity(intent);
         finish();
