@@ -1,10 +1,10 @@
 # Android Chat Application
 
-An Android chat application built using Java and Firebase, providing real-time messaging features. This application allows users to send messages, delete messages, receive notifications, update profiles, and handle user login and registration.
+An Android chat application built using Java and Firebase, providing real-time messaging features. This application allows users to send messages.
 
 ## Features
 
-- **User Registration & Login**: Users can register and log in using their name (up to 4 predefined users: `deep`, `dhiraj`, `father`, `mummy`).
+- **User Registration & Login**: Users can register and log in using their email and password.
 - **Real-time Messaging**: Send and receive messages in real-time using Firebase Database.
 
 ## Technologies Used
